@@ -1,0 +1,56 @@
+@import "../settings";
+@import "../global/mixins";
+
+.burger {
+  align-items: center;
+  justify-content: center;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: rem(20);
+    height: rem(2);
+    background-color: $white;
+    border-radius: 2px;
+    transition: $transition;
+  }
+
+  &:before {
+    top: 50%;
+    transform: translateY(-6px);
+  }
+
+  &:after {
+    top: 50%;
+    transform: translateY(4px);
+  }
+
+  &__line {
+    top: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: rem(20);
+    height: rem(2);
+    background-color: $white;
+    border-radius: 2px;
+    transition: $transition;
+    transform: translateY(-50%);
+  }
+
+  .nav-open & {
+    &:before {
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+
+    .burger__line {
+      transform: scale(0);
+    }
+  }
+}

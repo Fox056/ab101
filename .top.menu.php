@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"SEO",
+		"/seo/",
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Реклама в Я.Директ",
+		"/reklama/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Кейсы",
+		"/cases/",
+		Array(),
+		Array(),
+		""
+	),
+	Array(
+		"Контакты",
+		"#footer", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

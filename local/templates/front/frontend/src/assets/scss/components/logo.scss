@@ -1,0 +1,49 @@
+@import "../settings";
+@import "../global/mixins";
+
+.logo {
+  $block-name: &; // #{$block-name}__element
+
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  &__image {
+    width: rem(42);
+    height: rem(42);
+    margin-right: rem(10);
+
+    @include below($tablet-new) {
+      width: rem(26);
+      height: rem(26);
+      margin-right: rem(8);
+    }
+  }
+
+  &__text {
+    width: rem(103);
+    max-width: none;
+    height: rem(42);
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.125s ease-in-out, transform 0.125s ease-in-out;
+
+
+    @include below($tablet-new) {
+      width: rem(64);
+      height: rem(26);
+    }
+
+    @media (hover: hover) {
+      #{$block-name}:hover & {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer__logo & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

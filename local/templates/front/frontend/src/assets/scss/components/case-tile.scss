@@ -1,0 +1,322 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.case-tile {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2px;
+  height: 100%;
+
+  @include below($tablet-new) {
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding: 20px;
+  }
+
+  @include below($mobile-new) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 3;
+
+    @include below($tablet-new) {
+      grid-column: 1 / 1;
+    }
+
+    @include below($mobile-new) {
+      flex: 1;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -1.4px;
+
+    width: calc(100% - 40px);
+
+    @include below($tablet-new) {
+      font-size: 28px;
+      width: 100%;
+    }
+
+    @include below($mobile-new) {
+      font-size: 24px;
+    }
+  }
+
+  &__badge {
+    @include text-3;
+
+    margin-bottom: 10px;
+    padding: 2px 9px;
+    color: $white;
+    background-color: $black;
+    border-radius: 20px;
+    vertical-align: middle;
+  }
+
+  &__panel {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+    margin: 15px 0 20px;
+
+    @include below($tablet-new) {
+      gap: 10px;
+      grid-template-columns: repeat(2, auto);
+      justify-content: space-between;
+      margin: 10px 0 20px;
+    }
+
+    @include below($mobile-new) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__crumbs {
+    $pn: &;
+
+    @include text-3;
+    color: $gray-secondary;
+
+    gap: 5px;
+    display: flex;
+    align-items: center;
+
+    &-item {
+      gap: 5px;
+      display: flex;
+      align-items: center;
+
+      & + #{$pn}-item {
+        &:before {
+          content: '/';
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__link {
+    @include text-3;
+    @include link();
+  }
+
+  &__target {
+    $pn: &;
+
+    max-width: 375px;
+    margin-top: auto;
+
+    @include below($mobile-new) {
+      max-width: none;
+    }
+
+    &-item {
+      display: grid;
+      gap: 10px;
+
+      & + #{$pn}-item {
+        margin-top: 40px;
+
+        @include below($tablet-new) {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+
+  &__subtitle {
+    @include h6;
+  }
+
+  &__descr {
+    @include text-2;
+
+    .case-tile__target & {
+      color: $gray-secondary;
+    }
+  }
+
+  &__cols {
+    display: flex;
+    gap: 2px;
+    grid-column: 3 / 7;
+
+    @include below($tablet-new) {
+      grid-column: 1 / 1;
+    }
+
+    @include below($mobile-new) {
+      display: grid;
+      gap: 0;
+      margin: 0 -10px -10px;
+      align-self: end;
+      align-content: start;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-left: 1px dashed rgba($black, 0.3);
+
+    @include below($mobile-new) {
+      flex-direction: column-reverse;
+      padding: 10px;
+      border-left: none;
+      border-top: 1px dashed rgba($black, 0.3);
+    }
+  }
+
+  &__col-descr {
+    @include text-2;
+
+    min-height: 128px;
+    max-width: 240px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+
+    @include below($tablet-new) {
+      max-width: 170px;
+      padding-left: 5px;
+    }
+
+    @include below($mobile-new) {
+      min-height: auto;
+      margin-bottom: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__bar {
+    margin-top: auto;
+    padding: 10px;
+    color: $white;
+    background-color: $black;
+
+    &--1 {
+      height: 128px;
+    }
+
+    &--2 {
+      height: 256px;
+    }
+
+    &--3 {
+      height: 384px;
+    }
+
+    &--4 {
+      height: 512px;
+    }
+
+    @include below($tablet-new) {
+      &--2 {
+        height: 149px;
+      }
+
+      &--3 {
+        height: 172px;
+      }
+
+      &--4 {
+        height: 207px;
+      }
+    }
+
+    @include below($mobile-new) {
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding: 0;
+      color: $black;
+      background-color: transparent;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    span {
+      @include numbers-desktop;
+
+      display: flex;
+
+      @include below($tablet-new) {
+        @include numbers-tablet;
+      }
+
+      @include below($mobile-new) {
+        @include numbers-desktop;
+
+        display: flex;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: 2px;
+    }
+
+    small {
+      @include button;
+
+      margin-top: 4px;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+  }
+}
+
+.case-slider {
+  position: relative;
+  &__footer {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    cursor: pointer;
+
+    img {
+      display: block;
+    }
+  }
+
+  .swiper-pagination {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: rem(36);
+    line-height: 90%;
+
+    width: auto;
+    position: relative;
+    bottom: 0;
+  }
+}
+
+[data-case-slider] {
+  .swiper-slide {
+    height: auto;
+  }
+}

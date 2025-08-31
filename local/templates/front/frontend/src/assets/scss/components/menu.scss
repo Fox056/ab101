@@ -1,0 +1,63 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.menu {
+  background-color: $black;
+  overflow: visible auto;
+
+  &__wrapper {
+    padding: 70px 0;
+    //width: 100%;
+    //width: rem(590);
+    //min-height: calc(100vh - 140px);
+    //height: max-content;
+    //background-color: $dark-white;
+    //padding-top: rem(93);
+
+    @include below($tablet-new) {
+      //min-height: calc(100dvh - 50px);
+      //padding-top: rem(30);
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 40px;
+  }
+
+  &__item {
+    //padding: rem(12) 0 rem(18) rem(100);
+
+    @include below($tablet) {
+      //padding: rem(6) 0 rem(9) rem(24);
+    }
+
+    &:hover {
+      //background-color: $black;
+      //color: $white;
+      //transition: $transition;
+    }
+  }
+
+  &__link {
+    @include h3;
+
+    text-decoration: none;
+
+    //display: block;
+    //font-weight: 300;
+    //font-size: rem(54);
+    //line-height: 130%;
+    //text-decoration: none;
+    //transition: none !important;
+    //
+    //@include below($tablet) {
+    //  font-size: rem(30);
+    //}
+    //
+    //&--lh100 {
+    //  line-height: 100%;
+    //}
+  }
+}

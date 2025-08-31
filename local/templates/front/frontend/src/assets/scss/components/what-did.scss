@@ -1,0 +1,184 @@
+.what-did {
+  padding: rem(103) rem(0) rem(98);
+  background: #0E0E0E;
+  color: #DAD9D6;
+
+
+  @include below($mobile) {
+    padding: rem(60) rem(0);
+  }
+
+  &-wrap {
+    padding-left: rem(132);
+    position: relative;
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url(../img/icons/block-white.svg);
+      top: rem(-104);
+      left: rem(130);
+      width: rem(90);
+      height: rem(30);
+      @include below($desktop) {
+        left: 0;
+      }
+      @include below($mobile) {
+        background-image: url(../img/icons/block-white-mobile.svg);
+        width: rem(60);
+        height: rem(24);
+        top: rem(-61.4);
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url(../img/icons/block-black.svg);
+      bottom: rem(-127);
+      left: rem(130);
+      width: rem(90);
+      height: rem(30);
+      @include below($desktop) {
+        left: 0;
+      }
+      @include below($mobile) {
+        background-image: url(../img/icons/block-black-mobile.svg);
+        width: rem(60);
+        height: rem(24);
+        bottom: rem(-83.8);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(50);
+
+    @include below($mobile) {
+      margin-bottom: rem(24);
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4.35rem;
+
+    @include below($mobile) {
+      flex-direction: column;
+      margin-bottom: rem(40);
+    }
+
+    &:last-child {
+      margin-bottom: rem(0);
+      @include below($mobile) {
+        margin-bottom: rem(0);
+      }
+    }
+
+    &-left {
+      max-width: max-content;
+      min-width: rem(210);
+      width: 100%;
+      color: #DAD9D6;
+      @include below($mobile) {
+        margin-bottom: rem(16);
+      }
+    }
+
+    &-right {
+      max-width: rem(800);
+      width: 100%;
+      color: #EFEEEC;
+
+      ul {
+        @extend %main-ul;
+      }
+
+      ol {
+        @extend %main-ol;
+      }
+
+      li {
+        @extend %main-li;
+      }
+
+      p {
+        @extend %main-text;
+      }
+
+      p, ul, ol {
+        margin-bottom: rem(40);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      ul {
+        li {
+          &:before {
+            background-color: $white;
+          }
+        }
+      }
+
+      &-text {
+        &_border {
+          padding-left: rem(21.8);
+          border-left: 3px solid $black;
+        }
+      }
+
+      &-purpose {
+        display: flex;
+        margin-top: rem(60);
+
+        @include below($tablet) {
+          flex-direction: column;
+        }
+        @include below($mobile) {
+          margin-top: rem(40);
+        }
+        &-wrap {
+          max-width: rem(360);
+          @include below($tablet) {
+            max-width: initial;
+          }
+          &:nth-child(n + 2) {
+            margin-left: rem(80);
+
+            @include below($tablet) {
+              margin-top: rem(30);
+              margin-left: rem(0);
+            }
+          }
+        }
+        &-title {
+          margin-bottom: rem(16);
+        }
+        &-text {
+          font-size: rem(23);
+          line-height: 130%;
+          @include below($mobile) {
+            font-size: rem(16);
+          }
+        }
+      }
+
+      &-img {
+        max-width: rem(800);
+        width: 100%;
+      }
+
+      //&_display {
+      //  @include below($tablet) {
+      //    display: none;
+      //  }
+      //}
+    }
+  }
+}

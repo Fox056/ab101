@@ -1,0 +1,29 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.slogan {
+  &__title {
+    font-family: $fontSecondary;
+    font-size: rem(78);
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: rem(-8);
+    text-align: center;
+    text-transform: uppercase;
+
+    @include below($tablet-new) {
+      font-size: rem(32);
+      letter-spacing: rem(-2);
+    }
+
+    @include below($mobile-new) {
+      font-size: rem(28);
+      letter-spacing: rem(-2.8);
+
+      br {
+        display: none;
+      }
+    }
+  }
+}

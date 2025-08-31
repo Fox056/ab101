@@ -1,0 +1,19 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.contacts-welcome {
+  padding: rem(165) 0 rem(80);
+  background-color: $black;
+
+  @include below($tablet) {
+    padding: rem(100) 0 rem(50);
+  }
+
+  &__title {
+    @include h1();
+    color: $white;
+    text-align: center;
+    margin: 0;
+  }
+}

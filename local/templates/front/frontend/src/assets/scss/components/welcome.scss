@@ -1,0 +1,152 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.welcome {
+  display: grid;
+  padding: rem(70) 0;
+  min-height: calc(100vh - 85px);
+  color: $white;
+  background-color: $black;
+
+  @include below($tablet-new) {
+    padding: rem(75) 0 rem(30);
+  }
+
+  @include below($mobile-new) {
+    padding: rem(50) 0 rem(30);
+  }
+
+  &__container {
+    display: grid;
+    gap: rem(119);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+
+    @include below($tablet-new) {
+      gap: rem(75);
+    }
+
+    @include below($mobile-new) {
+      gap: rem(50);
+    }
+  }
+
+  &__main {
+    display: grid;
+    gap: rem(72);
+    align-items: center;
+    grid-template-columns: rem(435) 1fr;
+
+    @include below($tablet-new) {
+      grid-template-columns: 1fr;
+    }
+
+    &-col {
+      &--pic {
+        @include below($tablet-new) {
+          display: none;
+        }
+      }
+
+      &--text {
+        @include below($tablet-new) {
+          position: relative;
+
+          &:before {
+            content: '';
+            right: rem(20);
+            bottom: 0;
+            position: absolute;
+            width: rem(202);
+            height: rem(202);
+            display: block;
+            transform: scaleX(-1);
+            background: url('../img/analytics.svg') no-repeat center center;
+            background-size: contain;
+          }
+        }
+
+        @include below($mobile-new) {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    @include h1();
+
+    max-width: rem(993);
+    line-height: 100%;
+    margin: 0 0 rem(20);
+  }
+
+  &__subtitle {
+    @include h5();
+    margin: 0;
+    max-width: rem(418);
+
+    @include below($tablet-new) {
+      max-width: rem(418);
+    }
+
+    @include below($mobile-new) {
+      max-width: none;
+    }
+  }
+
+  &__btn {
+    margin: rem(40) 0 0;
+    max-width: rem(418);
+
+    @include below($tablet-new) {
+      white-space: nowrap;
+      font-size: rem(14);
+      max-width: rem(220);
+    }
+
+    @include below($mobile-new) {
+      max-width: none;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(3, 1fr);
+
+    @include below($tablet-new) {
+      gap: rem(10);
+      grid-template-columns: 1fr;
+    }
+
+    &-col {
+      padding: rem(20);
+      background-color: $black-secondary;
+    }
+
+    &-title {
+      @include h6();
+      line-height: 100%;
+      margin: 0 0 rem(10);
+      max-width: rem(337);
+
+      @include below($tablet-new) {
+        max-width: rem(337);
+      }
+    }
+
+    &-text {
+      @include text-3();
+      color: $dark-white;
+      max-width: rem(337);
+
+      @include below($tablet-new) {
+        max-width: rem(482);
+      }
+    }
+  }
+}

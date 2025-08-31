@@ -1,0 +1,39 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.contacts {
+  &__table {
+    $pn: &;
+
+    &-row {
+      display: grid;
+      gap: rem(20);
+      grid-template-columns: repeat(2, 1fr);
+
+      @include below($mobile) {
+        gap: rem(5);
+        grid-template-columns: 1fr;
+      }
+
+      & + #{$pn}-row {
+        margin-top: rem(50);
+
+        @include below($mobile) {
+          margin-top: rem(25);
+        }
+      }
+    }
+
+    &-label {
+      @include h6();
+      margin: 0;
+    }
+
+    &-value {
+      @include h3();
+      margin: 0;
+      text-decoration: none;
+    }
+  }
+}

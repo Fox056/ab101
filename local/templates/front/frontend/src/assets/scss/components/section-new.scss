@@ -1,0 +1,57 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.section-new {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 10px solid $black;
+
+    @include below($tablet-new) {
+      align-items: start;
+    }
+
+    @include below($mobile-new) {
+      gap: 10px;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    @include h2;
+
+    @include below($tablet-new) {
+      padding-bottom: 5px;
+    }
+  }
+
+  &__descr {
+    @include text-1;
+
+    width: 100%;
+    max-width: 50%;
+
+    @include below($tablet-new) {
+      padding-bottom: 10px;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include below($mobile-new) {
+      max-width: none;
+      padding-bottom: 5px;
+    }
+  }
+
+  &__body {
+    padding-top: 20px;
+
+    @include below($tablet-new) {
+      padding-top: 10px;
+    }
+  }
+}

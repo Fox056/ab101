@@ -1,0 +1,136 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.case-go {
+  $pn: &;
+
+  color: $white;
+  padding: rem(100) 0;
+  background-color: $black;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 115%;
+
+  @include below($tablet-new) {
+    padding: rem(30) 0 0;
+  }
+
+  ul li, ol li {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 115%;
+    position: relative;
+  }
+
+  ul {
+    max-width: rem(444px);
+
+    li {
+      padding-left: rem(16);
+
+      &:before {
+        content: '•';
+        top: 1px;
+        left: 0;
+        position: absolute;
+      }
+
+      & + li {
+        margin-top: rem(5);
+      }
+    }
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    counter-reset: case-go-counter;
+    list-style-type: none;
+
+    li {
+      counter-increment: case-go-counter;
+      display: flex;
+      padding: rem(20) 0;
+      border-width: 1px 0;
+      border-style: solid;
+      border-color: $black-secondary;
+
+      &:before {
+        content: "(" counter(case-go-counter, decimal-leading-zero) ")";
+        margin-right: rem(10);
+      }
+
+      & + li {
+        margin-top: rem(-0.5);
+      }
+    }
+  }
+
+  &__table {
+    $pn: &;
+
+    &-row {
+      display: grid;
+      gap: rem(50) rem(20);
+      grid-template-columns: repeat(2, 1fr);
+
+      @include below($mobile-new) {
+        gap: rem(15);
+        grid-template-columns: 1fr;
+      }
+
+      & + #{$pn}-row {
+        margin-top: rem(40);
+      }
+    }
+
+    &-col {
+      &--steps {
+        grid-column: span 2;
+
+        @include below($mobile-new) {
+          grid-column: auto;
+          margin-top: rem(15);
+        }
+      }
+    }
+
+    &-label {
+      @include h6();
+    }
+  }
+
+  &__name {
+    @include h3();
+  }
+}
+
+.case-go {
+  .section-new {
+    &__header {
+      border-color: $white;
+    }
+  }
+}
+
+.case-go {
+  .starting-steps {
+    &__row {
+      border-color: $black-secondary;
+
+      &:before,
+      &:after {
+        background-color: $white;
+      }
+    }
+
+    &__number {
+      color: $black;
+      background-color: $white;
+    }
+  }
+}

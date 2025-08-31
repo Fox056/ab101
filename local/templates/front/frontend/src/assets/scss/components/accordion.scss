@@ -1,0 +1,96 @@
+.accordion {
+  &__item {
+    border-top: 1px solid rgba(14, 14, 14, 0.58);
+    padding: rem(24) 0 rem(30);
+
+    @include below($tablet) {
+      padding: rem(24) 0;
+    }
+
+    @include below($mobile) {
+      padding: rem(16) 0;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid rgba(14, 14, 14, 0.58);
+    }
+
+    &.active {
+      .accordion__title {
+        margin-bottom: rem(24) !important;
+
+        @include below($mobile) {
+          margin-bottom: rem(16) !important;
+        }
+
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: rem(32) !important;
+    line-height: 130% !important;
+    cursor: pointer;
+    transition: $transition;
+    margin-bottom: 0 !important;
+
+    @include below($tablet) {
+      font-size: rem(28) !important;
+    }
+
+    @include below($mobile) {
+      font-size: rem(22) !important;
+      line-height: 110% !important;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background: url("/local/templates/front/frontend/dist/assets/img/icons/accordion-btn.svg") center / cover no-repeat;
+      color: $black;
+      width: rem(36);
+      min-width: rem(36);
+      height: rem(36);
+      transition: $transition;
+      margin-right: rem(30);
+
+      @include below($desktop) {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__body {
+    max-height: 0;
+    overflow: hidden;
+    transition: $transition;
+    padding-right: rem(100);
+    @extend %main-text;
+
+    @include below($desktop) {
+      padding-right: 0;
+    }
+  }
+
+  ul {
+    @extend %main-ul;
+  }
+
+  ol {
+    @extend %main-ol;
+  }
+
+  li {
+    @extend %main-li;
+  }
+
+  p {
+    @extend %main-text;
+  }
+}

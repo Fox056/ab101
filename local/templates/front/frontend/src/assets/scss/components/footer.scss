@@ -1,0 +1,110 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.footer {
+  color: $white;
+  background-color: $black;
+  padding: rem(50) 0;
+
+  &__row {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(4, minmax(0, rem(270)));
+    justify-content: space-between;
+
+    @include below($tablet-new) {
+      gap: rem(40) rem(10);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__title {
+    @include h6();
+
+    color: $white;
+    margin-bottom: rem(20);
+    padding-bottom: rem(10);
+    border-bottom: 5px solid $white;
+  }
+
+  &__nav {
+    @include text-3();
+
+    display: grid;
+    gap: rem(15);
+    grid-template-columns: 1fr;
+
+    a {
+      cursor: pointer;
+    }
+
+    &-item {
+      &--more {
+        @include link-dark();
+
+        margin-top: rem(30);
+      }
+    }
+
+    &-type {
+      @include h7();
+
+      color: $gray;
+      display: block;
+      margin-bottom: rem(5);
+    }
+
+    &-value {
+      @include text-3();
+
+      text-decoration: none;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: rem(40);
+
+    @include below($mobile-new) {
+      gap: rem(20);
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__copy {
+    @include text-3();
+
+    color: $dark-white;
+    text-align: right;
+    max-width: rem(335);
+
+    @include below($mobile-new) {
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    @include below($mobile-new) {
+      order: 1;
+    }
+
+    .logo__image {
+      width: rem(30);
+      height: rem(30);
+      margin-right: rem(10);
+    }
+
+    .logo__text {
+      font-size: rem(20);
+      line-height: 170%;
+    }
+  }
+}

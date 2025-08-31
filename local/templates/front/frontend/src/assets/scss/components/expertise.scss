@@ -1,0 +1,245 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.expertise {
+  &__row {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    grid-auto-flow: row;
+
+    @include below($tablet-new) {
+      gap: rem(10);
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__col {
+    $pn: &;
+
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(2, 1fr);
+
+    padding: rem(40);
+    background-color: $dark-white;
+
+    @include below($tablet-new) {
+      padding: rem(20);
+    }
+
+    @include below($mobile-new) {
+      grid-template-columns: 1fr;
+    }
+
+    &--primary,
+    &--secondary {
+      #{$pn} {
+        &-item {
+          display: flex;
+          flex-direction: column;
+        }
+
+        &-name,
+        &-desc {
+          flex: 1 0 auto;
+        }
+      }
+    }
+
+    &--tertiary {
+      grid-column: span 2;
+      grid-template-columns: calc(50% - rem(10)) rem(280) auto;
+
+      @include below($tablet-new) {
+        grid-column: span 1;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below($mobile-new) {
+        grid-template-columns: 1fr;
+      }
+
+      #{$pn} {
+        &-item {
+          &--tag {
+            text-align: right;
+
+            @include below($tablet-new) {
+              text-align: left;
+            }
+          }
+
+          &--stack {
+            grid-column: span 3;
+
+            @include below($tablet-new) {
+              grid-column: span 2;
+            }
+
+            @include below($mobile-new) {
+              grid-column: span 1;
+            }
+          }
+        }
+      }
+    }
+
+    &-name {
+      @include h3();
+
+      @include below($tablet-new) {
+        max-width: rem(208);
+      }
+    }
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: rem(70);
+      height: rem(70);
+      border-radius: 100%;
+      background-color: $white;
+
+      @include below($tablet-new) {
+        width: rem(50);
+        height: rem(50);
+      }
+
+      @include below($mobile-new) {
+        display: none;
+      }
+
+      img {
+        width: rem(32);
+        height: rem(32);
+        object-fit: contain;
+
+        @include below($tablet-new) {
+          width: rem(23);
+          height: rem(23);
+        }
+      }
+    }
+
+    &-desc {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.15;
+      margin: 0;
+    }
+
+    &-more {
+      @include text-3();
+      @include link();
+
+      margin: rem(20) 0 0;
+      display: inline-block;
+    }
+
+    &-tag {
+      @include text-3();
+      color: $white;
+      padding: rem(2) rem(8);
+      border-radius: rem(60);
+      background-color: $black;
+    }
+  }
+
+  &__stack {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(3, 1fr);
+
+    @include below($tablet-new) {
+      gap: rem(10);
+      grid-template-columns: 1fr;
+    }
+
+    &-col {
+      padding: rem(20) rem(20) rem(210);
+      border: 1px dashed $gray-secondary;
+      background-position: center 90%;
+      background-size: auto;
+      background-repeat: no-repeat;
+
+      @include below($tablet-new) {
+        padding: rem(20) rem(20) rem(158);
+      }
+
+      @include below($mobile-new) {
+        padding: rem(20) rem(20) rem(232);
+      }
+
+      &--frontend {
+        background-image: url('../img/stack-01-desktop.svg');
+
+        @include below($tablet-new) {
+          background-image: url('../img/stack-01-tablet.svg');
+        }
+
+        @include below($mobile-new) {
+          background-image: url('../img/stack-01-mobile.svg');
+          background-size: auto rem(202);
+        }
+      }
+
+      &--backend {
+        background-image: url('../img/stack-02-desktop.svg');
+
+        @include below($tablet-new) {
+          background-image: url('../img/stack-02-tablet.svg');
+        }
+
+        @include below($mobile-new) {
+          background-image: url('../img/stack-02-mobile.svg');
+          background-size: auto rem(168);
+        }
+      }
+
+      &--qa {
+        background-image: url('../img/stack-03-desktop.svg');
+
+        @include below($tablet-new) {
+          background-image: url('../img/stack-03-tablet.svg');
+        }
+
+        @include below($mobile-new) {
+          background-image: url('../img/stack-03-mobile.svg');
+          background-size: auto rem(170);
+        }
+      }
+    }
+
+    &-header {
+      display: grid;
+      gap: rem(37);
+      grid-template-columns: repeat(2, auto);
+
+      @include below($tablet-new) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below($mobile-new) {
+        gap: rem(10);
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &-name {
+      @include text-1();
+      margin: 0;
+    }
+
+    &-list {
+      @include text-2();
+      color: $gray-secondary;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.possibilities {
+  background-color: #F5F4F2;
+
+  &__wrapper {
+    padding-left: rem(132);
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+
+  }
+
+  &__item {
+    margin-bottom: rem(160);
+
+    @include below($tablet) {
+      margin-bottom: rem(60);
+    }
+
+    @include below($mobile) {
+      margin-bottom: rem(80);
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .possibilities-item {
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: rem(60);
+
+      @include below($tablet) {
+        margin-bottom: rem(40);
+      }
+
+      @include below($mobile) {
+        margin-bottom: rem(30);
+      }
+    }
+
+    &__num {
+      font-size: rem(36);
+      line-height: 1;
+      color: $gray;
+
+      @include below($mobile) {
+        font-size: rem(32);
+        margin-right: rem(40);
+      }
+    }
+
+    &__border {
+      width: 100%;
+      max-width: rem(600);
+      height: 1px;
+      background-color: #909090;
+
+      @include below($desktop) {
+        max-width: 50%;
+      }
+
+      @include below($mobile) {
+        max-width: 100%;
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      @include below($mobile) {
+        flex-direction: column;
+      }
+    }
+
+    &__title {
+      font-family: "DidactGothic", sans-serif;
+      font-size: rem(120);
+      line-height: 106%;
+      max-width: rem(670);
+      text-shadow: #0e0e0e 1px 0, #0e0e0e 1px 1px, #0e0e0e 0 1px, #0e0e0e -1px 1px, #0e0e0e -1px 0px, #0e0e0e -1px -1px, #0e0e0e 0px -1px, #0e0e0e 1px -1px;
+
+      @include below($desktop) {
+        font-size: rem(100);
+        max-width: 50%;
+        width: 50%;
+      }
+
+      @include below($tablet) {
+        font-size: rem(58);
+        padding-right: rem(15);
+      }
+
+      @include below($mobile) {
+        width: 100%;
+        max-width: 100%;
+        font-size: rem(50);
+        margin-bottom: rem(40);
+      }
+    }
+
+    &__description {
+      width: 100%;
+      max-width: rem(600);
+      padding-top: rem(16);
+
+      @include below($desktop) {
+        max-width: 50%;
+        width: 50%;
+      }
+
+      @include below($mobile) {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      ul {
+        @extend %main-ul;
+      }
+
+      ol {
+        @extend %main-ol;
+      }
+
+      li {
+        @extend %main-li;
+      }
+
+      p {
+        @extend %main-text;
+      }
+    }
+
+    &__link {
+      margin-top: rem(90);
+
+      @include below($tablet) {
+        margin-top: rem(50);
+      }
+
+      @include below($mobile) {
+        margin-top: rem(40);
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.form {
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: rem(40);
+
+    &.error {
+      .form__input {
+        border-color: tomato;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: rem(250);
+    font-size: rem(16);
+    line-height: 170%;
+    border: 1px solid $dark-white;
+    resize: none;
+    background-color: #F7F7F7;
+    padding: rem(16) rem(24);
+
+    @include below($mobile) {
+      height: rem(200);
+    }
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+
+  &__message {
+    position: absolute;
+    bottom: rem(-25);
+    font-size: rem(23);
+    line-height: 1;
+
+    @include below($mobile) {
+      font-size: rem(16);
+    }
+
+    &.error {
+      color: tomato;
+    }
+  }
+
+  &__btn {
+    padding: rem(18) rem(70);
+
+    @include below($mobile) {
+      padding: rem(12) rem(70);
+    }
+  }
+}

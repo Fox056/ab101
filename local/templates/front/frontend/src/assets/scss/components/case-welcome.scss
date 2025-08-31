@@ -1,0 +1,114 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.case-welcome {
+  color: $white;
+  background-color: $black;
+  display: flex;
+  padding: rem(80) 0;
+  min-height: calc(100vh - rem(85));
+
+  @include below($tablet-new) {
+    padding: rem(100) 0 rem(70);
+    min-height: calc(100vh - rem(50));
+  }
+
+  @include below($mobile-new) {
+    padding: rem(80) 0;
+  }
+
+  &__container {
+    gap: rem(40);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    flex: 1 0 auto;
+  }
+
+  &__tags {
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: rem(15);
+
+    &-item {
+      @include text-3;
+
+      color: $black;
+      padding: rem(2) rem(9);
+      border-radius: rem(20);
+      background-color: $white;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-size: 100px;
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: rem(-2);
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+
+    @include below($tablet-new) {
+      font-size: 46px;
+      line-height: 1;
+      letter-spacing: -2.76px;
+    }
+
+    @include below($mobile-new) {
+      letter-spacing: rem(1.4);
+    }
+  }
+
+  &__main {
+    position: relative;
+
+    &:after {
+      content: '';
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: .2;
+      background: linear-gradient(360deg, rgba(14, 14, 14, 0) 0%, $black 100%);
+    }
+  }
+
+  &__pic {
+    width: 100%;
+    height: auto;
+
+    &--desktop {
+      @include below($tablet-new) {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include below($tablet-new) {
+        display: block;
+      }
+
+      @include below($mobile-new) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @include below($mobile-new) {
+        display: block;
+      }
+    }
+  }
+}

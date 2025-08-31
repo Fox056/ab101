@@ -1,0 +1,117 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.cases-slider-secondary {
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+    padding: rem(20);
+  }
+
+  &__main {
+    flex: 1 0 auto;
+  }
+
+  &__tags {
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+    margin-bottom: rem(10);
+
+    &-item {
+      @include text-3;
+
+      color: $white;
+      padding: rem(2) rem(9);
+      background-color: $black;
+      border-radius: rem(20);
+    }
+  }
+
+  &__title {
+    @include h5;
+    margin: 0;
+  }
+
+  &__more {
+    color: $black;
+    width: auto;
+    max-width: rem(150);
+    padding: rem(10) rem(28);
+    box-sizing: border-box;
+
+    svg {
+      height: rem(12);
+      width: rem(12);
+      min-width: rem(12);
+    }
+  }
+}
+
+.cases-slider-secondary__slider {
+  position: relative;
+
+  @include below($tablet-new) {
+    padding-bottom: rem(56);
+  }
+
+  &-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    gap: rem(10);
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    @include below($tablet-new) {
+      display: flex;
+    }
+  }
+
+  .swiper {
+    @include below($tablet-new) {
+      margin-right: -10px;
+      margin-left: -10px;
+      padding: 0 var(--padding-content-new);
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    cursor: pointer;
+  }
+
+  .swiper-pagination {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: rem(36);
+    line-height: 90%;
+
+    width: auto;
+    position: relative;
+    bottom: 0;
+  }
+}
+
+[data-case-slider-2] {
+  .swiper-slide {
+    display: flex;
+    height: auto;
+    min-height: rem(217);
+    background-color: $dark-white;
+    border-top: 5px solid $black;
+
+    @include below($tablet-new) {
+      max-width: rem(410);
+    }
+
+    @include below($mobile-new) {
+      max-width: none;
+    }
+  }
+}

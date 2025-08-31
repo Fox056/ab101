@@ -1,0 +1,32 @@
+.seo-text {
+  &__wrapper {
+    padding: rem(240) 0 rem(60) rem(130);
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+
+    @include below($tablet) {
+      padding: rem(120) 0 rem(50);
+    }
+
+    @include below($mobile) {
+      padding: rem(100) 0 rem(40);
+    }
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: rem(72);
+    line-height: 106%;
+    margin: 0;
+
+    @include below($tablet) {
+      font-size: rem(44);
+    }
+
+    @include below($mobile) {
+      font-size: rem(22);
+    }
+  }
+}

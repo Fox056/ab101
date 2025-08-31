@@ -1,0 +1,20 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  &__item {}
+
+  &__link {
+    @include text-3;
+
+    color: $white;
+    text-decoration: none;
+  }
+}

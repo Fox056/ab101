@@ -1,0 +1,104 @@
+@use "sass:math";
+@import "../settings";
+
+// Mixins
+@function path($path) {
+  @return '..' + $path;
+}
+
+@mixin list-reset($margin: true, $padding: true) {
+  @if $margin {
+    margin: 0;
+  }
+  @if $padding {
+    padding: 0;
+  }
+  text-indent: 0;
+  list-style: none;
+}
+
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Mixin - fonts
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// Mixin - media
+@mixin below($width, $orientation: 'width') {
+  @media screen and (max-#{$orientation}: $width) {
+    @content;
+  }
+}
+
+@mixin above($width, $orientation: 'width') {
+  @media screen and (min-#{$orientation}: $width) {
+    @content;
+  }
+}
+
+@mixin between($minWidth, $maxWidth, $orientation: 'width') {
+  @media screen and (min-#{$orientation}: $minWidth) and (max-#{$orientation}: $maxWidth) {
+    @content;
+  }
+}
+
+// Mixin - rem
+@function rem($num) {
+  $strip-unit: math.div($num, $num * 0 + 1);
+  @return calc($strip-unit / 16) * 1rem;
+}
+
+// Mixin - placeholder
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+

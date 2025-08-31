@@ -1,0 +1,164 @@
+.next-case {
+  padding-bottom: rem(150);
+
+  @include below($tablet) {
+    padding-bottom: rem(60);
+  }
+
+  &-wrap {
+    padding-left: rem(132);
+    display: flex;
+    justify-content: space-between;
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+
+
+    @include below($tablet) {
+      justify-content: space-evenly;
+    }
+
+    @include below($mobile) {
+      justify-content: space-between;
+    }
+  }
+
+  &__left {
+    position: relative;
+    max-width: rem(650);
+    min-width: rem(136);
+    min-height: rem(350);
+    padding: rem(40);
+    border: 1px solid #0E0E0E;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    transition: background-color 350ms;
+
+    &:nth-child(n + 2) {
+      margin-left: rem(60);
+
+      @include below($tablet) {
+        margin-left: rem(40);
+      }
+      @include below($mobile) {
+        margin-left: rem(16);
+      }
+    }
+
+    @include below($desktop) {
+      width: 50%;
+      min-height: rem(340);
+    }
+    @include below($mobile) {
+      padding: rem(24) rem(3) rem(24) rem(12);
+      min-height: rem(250);
+    }
+
+    ul {
+      @extend %main-ul;
+    }
+
+    ol {
+      @extend %main-ol;
+    }
+
+    li {
+      @extend %main-li;
+    }
+
+    p {
+      @extend %main-text;
+      transition: color 350ms;
+    }
+
+    &-title {
+      margin-bottom: rem(81);
+
+      @include below($tablet) {
+        margin-bottom: rem(66);
+      }
+      @include below($mobile) {
+        margin-bottom: rem(43);
+        font-size: rem(13);
+      }
+    }
+
+    &-arrow {
+      position: absolute;
+      bottom: 40px;
+      transform: rotate(180deg);
+      &-mobile {
+        display: block;
+        position: absolute;
+        bottom: 40px;
+        @include below($tablet) {
+          bottom: 24px;
+        }
+      }
+      @include below($tablet) {
+        bottom: 24px;
+      }
+    }
+
+    &-right {
+      display: none;
+      transform: rotate(0);
+      position: absolute;
+      bottom: 40px;
+      @include below($tablet) {
+        bottom: 24px;
+      }
+      &-mobile {
+        position: absolute;
+        bottom: 40px;
+        display: none;
+        transform: rotate(180deg);
+        @include below($tablet) {
+          bottom: 24px;
+        }
+      }
+    }
+
+    &_background {
+      background-color: #0E0E0E;
+    }
+
+    &_color {
+      color: #EFEEEC;
+    }
+
+    &:hover {
+      background: black;
+
+      .next-case__left-title {
+        color: #DAD9D6;
+      }
+
+      p, li {
+        color: #EFEEEC;
+      }
+
+      ul li:before {
+        background-color: $white;
+      }
+
+      .next-case__left-right-mobile {
+        display: block;
+      }
+
+      .next-case__left-right {
+        display: block;
+      }
+
+      .next-case__left-arrow {
+        display: none;
+      }
+
+      .next-case__left-arrow-mobile {
+        display: block;
+      }
+    }
+  }
+}

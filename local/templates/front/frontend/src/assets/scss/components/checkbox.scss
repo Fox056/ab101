@@ -1,0 +1,47 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.checkbox {
+  display: flex;
+  gap: 10px;
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  &__input:checked + &__fake-input::before {
+    display: block;
+    width: 15px;
+    height: 7px;
+    border-left: 1px solid $black;
+    border-bottom: 1px solid $black;
+    content: "";
+    transform: rotate(-45deg) translate(-1px, 3px);
+  }
+
+  &__input--invalid + &__fake-input {
+    border: 1px solid #ff0000;
+  }
+
+  &__fake-input {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $black;
+  }
+
+  &__title {
+    @include text-3;
+
+    color: $gray-secondary;
+    max-width: 364px;
+    user-select: none;
+
+    a {
+      @include link();
+      color: $black;
+    }
+  }
+}

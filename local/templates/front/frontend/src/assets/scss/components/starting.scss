@@ -1,0 +1,150 @@
+.starting {
+  &__wrapper {
+    padding-left: rem(132);
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: rem(72);
+    line-height: 106%;
+    color: $white;
+    margin-bottom: rem(60);
+
+    @include below($tablet) {
+      font-size: rem(46);
+      margin-bottom: rem(40);
+    }
+
+    @include below($mobile) {
+      font-size: rem(28);
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__item {
+    &:nth-child(3),
+    &:nth-child(4) {
+      margin-top: rem(93);
+
+      @include below($desktop) {
+        margin-top: rem(63);
+      }
+
+      @include below($tablet) {
+        margin-top: rem(40);
+      }
+
+      @include below($mobile) {
+        margin-top: rem(60);
+      }
+    }
+
+    @include below($tablet) {
+      margin-top: rem(40);
+    }
+
+    @include below($mobile) {
+      margin-top: rem(60);
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .starting-item {
+    width: calc(50% - 50px);
+    border-top: 1px solid rgba(239, 238, 236, 0.5);
+
+    @include below($desktop) {
+      width: calc(50% - 40px);
+    }
+
+    @include below($tablet) {
+      width: 100%;
+    }
+
+    &__wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__num {
+      font-family: "DidactGothic", sans-serif;
+      min-width: rem(220);
+      font-size: rem(200);
+      line-height: 120%;
+      letter-spacing: 0.02em;
+      color: rgba(239, 238, 236, 0.16);
+      margin-right: rem(60);
+
+      @include below($desktop) {
+        margin-right: rem(30);
+      }
+
+      @include below($mobile) {
+        min-width: rem(71);
+        font-size: rem(64);
+        margin: rem(30) rem(20) 0 0;
+      }
+    }
+
+    &__description {
+      padding-top: rem(60);
+
+      @include below($tablet) {
+        padding-right: rem(160);
+      }
+
+      @include below($mobile) {
+        padding: rem(30) 0 0;
+      }
+    }
+
+    &__title {
+      font-size: rem(41) !important;
+      line-height: 120% !important;
+      margin-bottom: rem(40) !important;
+
+      @include below($mobile) {
+        font-size: rem(28) !important;
+        line-height: 110% !important;
+        margin-bottom: rem(24) !important;
+      }
+    }
+
+    ul {
+      @extend %main-ul;
+    }
+
+    ol {
+      @extend %main-ol;
+    }
+
+    li {
+      @extend %main-li;
+    }
+
+    p {
+      @extend %main-text;
+    }
+
+    &__link {
+      margin-top: rem(40);
+
+      @include below($mobile) {
+        margin-top: rem(30);
+      }
+    }
+  }
+}

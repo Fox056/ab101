@@ -1,0 +1,95 @@
+.starting-steps {
+  $pn: &;
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    position: relative;
+    padding: rem(35) 0;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: $dark-white;
+
+    #{$pn}--case & {
+      border-width: 1px 0 0;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      top: rem(35);
+      position: absolute;
+      width: rem(7);
+      height: rem(7);
+      display: block;
+      background-color: $black;
+    }
+
+    &:before {
+      left: 0;
+
+      @include below($tablet-new) {
+        top: rem(20);
+      }
+
+      @include below($mobile-new) {
+        display: none;
+      }
+    }
+
+    &:after {
+      right: 0;
+
+      @include below($tablet-new) {
+        display: none;
+      }
+
+      @include below($mobile-new) {
+        top: rem(20);
+      }
+    }
+
+    @include below($tablet-new) {
+      padding: rem(20) 0 rem(35);
+    }
+
+    @include below($mobile-new) {
+      grid-template-columns: 1fr;
+    }
+
+    &__head {
+      padding-bottom: rem(50);
+
+      @include below($tablet-new) {
+        padding-bottom: rem(30);
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__col {
+    position: relative;
+  }
+
+  &__number {
+    top: rem(-46);
+    left: 0;
+    position: absolute;
+
+    @include text-3();
+    color: $white;
+    padding: rem(2) rem(8);
+    border-radius: rem(60);
+    background-color: $black;
+
+    @include below($tablet-new) {
+      top: rem(-31);
+    }
+  }
+
+  &__text {
+    @include text-1();
+    max-width: rem(497);
+  }
+}

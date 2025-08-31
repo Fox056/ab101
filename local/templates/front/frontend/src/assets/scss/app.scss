@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+@import "../../../node_modules/foundation-sites/scss/foundation";
+
+// Global styles
+@include foundation-global-styles;
+//@include foundation-typography;
+
+@import "settings";
+
+@import "global/mixins";
+@import "global/global";
+@import "global/fonts";
+
+// плагины
+@import 'libs/jquery.fancybox.min';
+@import "../../../node_modules/swiper/swiper";
+@import "../../../node_modules/swiper/modules/pagination/pagination";
+@import "../../../node_modules/animate.css/animate";
+
+// компоненты
+@import "components/top-banner";
+@import "components/header";
+@import "components/next-case";
+@import "components/start-block";
+@import "components/what-did";
+@import "components/results";
+@import "components/top-block";
+@import "components/logo";
+@import "components/nav";
+@import "components/burger";
+@import "components/menu";
+@import "components/hero";
+@import "components/hero-seo";
+@import "components/seo-text";
+@import "components/cases";
+@import "components/case";
+@import "components/hover-block";
+@import "components/slider";
+@import "components/modal";
+@import "components/possibilities";
+@import "components/methods";
+@import "components/accordion";
+@import "components/starting";
+@import "components/message";
+@import "components/form";
+@import "components/footer";
+@import "components/footer-new";
+@import "components/tooltip";
+@import "components/button";
+@import "components/hero-new";
+@import "components/section-new";
+@import "components/case-tile";
+@import "components/faq-tile";
+@import "components/form-block";
+@import "components/checkbox";
+@import "components/input";
+@import "components/work-table";
+@import "components/why-table";
+@import "components/hero-card";
+@import "components/welcome";
+@import "components/complex";
+@import "components/attract";
+@import "components/expertise";
+@import "components/methodology";
+@import "components/starting-new";
+@import "components/starting-steps";
+@import "components/slogan";
+@import "components/case-welcome";
+@import "components/case-start";
+@import "components/case-lets-go";
+@import "components/case-result";
+@import "components/cases-slider-2";
+@import "components/contacts-welcome";
+@import "components/contacts";

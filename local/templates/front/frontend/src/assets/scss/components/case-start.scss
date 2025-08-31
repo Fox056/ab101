@@ -1,0 +1,199 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.case-start {
+  $pn: &;
+
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 115%;
+
+  ul li, ol li {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 115%;
+    position: relative;
+  }
+
+  ul {
+    max-width: rem(525);
+
+    li {
+      padding-left: rem(16);
+
+      &:before {
+        content: '•';
+        top: 1px;
+        left: 0;
+        position: absolute;
+      }
+
+      & + li {
+        margin-top: rem(5);
+      }
+    }
+  }
+
+  table {
+    @include text-3();
+    @include table-default();
+  }
+
+  &__table {
+    $pn: &;
+
+    &-row {
+      display: grid;
+      gap: rem(10);
+      grid-template-columns: repeat(2, 1fr);
+
+      & + #{$pn}-row {
+        margin-top: rem(40);
+      }
+
+      &--secondary {
+        @include below($tablet-new) {
+          grid-template-columns: 1fr;
+          margin-top: rem(15) !important;
+        }
+      }
+
+      &--tertiary {
+        @include below($tablet-new) {
+          grid-template-columns: 1fr;
+
+        }
+      }
+
+      &--quaternary {
+        #{$pn}-col {
+          &:nth-of-type(4) {
+            @include below($tablet-new) {
+              grid-column: span 2;
+            }
+
+            @include below($mobile-new) {
+              grid-column: auto;
+            }
+          }
+        }
+      }
+
+      @include below($mobile-new) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &-label {
+      @include h6();
+    }
+
+    &-title {
+      @include h3();
+      line-height: 90%;
+    }
+
+    &-desc {
+      @include text-1();
+      max-width: rem(437);
+
+      @include below($tablet-new) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__date {
+    margin: rem(20) 0 0;
+
+    &-label {
+      @include text-3();
+      color: $gray-secondary;
+      display: block;
+      margin-bottom: rem(10);
+    }
+
+    &-value {
+      @include numbers-desktop();
+
+      br {
+        display: none;
+      }
+
+      @include below($tablet-new) {
+        @include numbers-tablet();
+      }
+
+      @include below($mobile-new) {
+        @include numbers-mobile();
+
+        br {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__goals {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: rem(20);
+
+    @include below($mobile-new) {
+      gap: rem(10);
+      grid-template-columns: 1fr;
+    }
+
+    &-col {
+      display: flex;
+      gap: rem(10);
+      flex-direction: column;
+
+      padding: rem(20);
+      min-height: rem(245);
+      background: $dark-white;
+
+      @include below($mobile-new) {
+        min-height: rem(211);
+      }
+    }
+
+    &-main {
+      flex: 1 0 auto;
+    }
+
+    &-label {
+      @include text-3();
+      color: $gray-secondary;
+    }
+
+    &-percent {
+      @include numbers-desktop();
+      display: block;
+      margin-top: rem(10);
+
+      @include below($tablet-new) {
+        @include numbers-tablet();
+      }
+    }
+
+    &-footer {
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.15;
+      flex: 1;
+
+      br {
+        display: none;
+        @include below($tablet-new) {
+          display: block;
+        }
+      }
+    }
+  }
+}

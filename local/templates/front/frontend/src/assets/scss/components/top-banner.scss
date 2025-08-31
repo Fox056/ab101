@@ -1,0 +1,59 @@
+.banner {
+  position: fixed;
+  top: 0;
+  //display: none;
+  visibility: hidden;
+  width: 100%;
+  background-color: #3C8279;
+  z-index: 15;
+
+  &.open {
+    //display: block;
+    visibility: visible;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: rem(54);
+    padding: rem(12) 0;
+
+    @include below($tablet) {
+      padding: rem(15) 0;
+    }
+  }
+
+  &__text {
+    font-size: rem(23);
+    color: $white;
+    padding-right: rem(30);
+
+    @include below($mobile) {
+      padding-right: rem(30);
+    }
+
+    &--desktop {
+      display: block;
+
+      @include below($mobile) {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @include below($mobile) {
+        display: block;
+      }
+    }
+  }
+  
+  &__btn {
+    width: rem(24);
+    min-width: rem(24);
+    height: rem(24);
+    cursor: pointer;
+  }
+}

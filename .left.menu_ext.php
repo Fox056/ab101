@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+    Array(
+        "Кейсы",
+        "/cases/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Возможности",
+        "#possibilities",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Методология",
+        "#methods",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Подготовка к сотрудничеству",
+        "#starting",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Написать мне",
+        "#section-message",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Контакты",
+        "#footer",
+        Array(),
+        Array(),
+        ""
+    ),
+);
+?>

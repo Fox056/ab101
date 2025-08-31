@@ -1,0 +1,89 @@
+@import "../settings";
+@import "../global/mixins";
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  color: $white;
+  background-color: $black;
+
+  @include below($tablet-new) {
+    box-shadow: inset 0 -1px 0 0 $white;
+
+    @include below($mobile-new) {
+      box-shadow: none;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 20px 15px;
+    box-shadow: inset 0 -2px 0 0 $white;
+
+    @include below($tablet-new) {
+      justify-content: start;
+      padding-block: 12px;
+      box-shadow: none;
+    }
+  }
+
+  &__logo {
+    width: rem(42);
+    text-decoration: none;
+    margin-right: 164px;
+
+    @include below($tablet-new) {
+      width: rem(26);
+      margin-right: 0;
+    }
+  }
+
+  &__nav {
+    @include below($tablet-new) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    width: rem(50);
+    height: rem(50);
+    padding: 13px;
+
+    @include below($tablet-new) {
+      display: flex;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    inset: 50px 0 0;
+    height: calc(100dvh - 50px);
+    z-index: 10;
+    transform: translateY(-16px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s;
+
+    @include below($tablet-new) {
+      .nav-open & {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__btn {
+    @include below($tablet-new) {
+      display: none !important;
+    }
+  }
+}

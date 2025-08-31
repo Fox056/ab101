@@ -1,0 +1,227 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.work-table {
+  $block-name: &; // #{$block-name}__element
+
+  display: grid;
+
+  @include below($tablet-new) {
+    padding-top: 20px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+
+    @include below($tablet-new) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+
+      @include below($tablet-new) {
+        padding-bottom: 15px;
+      }
+    }
+
+    & + & {
+      padding-top: 20px;
+      border-top: 1px solid $dark-white;
+
+      @include below($tablet-new) {
+        padding-top: 30px;
+        border-top: 2px solid $black;
+      }
+    }
+  }
+
+  &__title {
+    @include h6;
+  }
+
+  &__col {
+    gap: 20px;
+    grid-column: 3 / 7;
+    counter-reset: row;
+
+    @include below($tablet-new) {
+      grid-column: 1 / -1;
+      padding-top: 15px;
+      border-top: 1px solid $dark-white;
+    }
+  }
+
+  &__block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column: 2 / -1;
+    counter-increment: row;
+
+    @include below($tablet-new) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include below($mobile-new) {
+      grid-template-columns: 40px auto;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+    }
+
+    & + & {
+      border-top: 1px solid $dark-white;
+      padding-top: 20px;
+
+      &:before {
+        top: 20px;
+      }
+    }
+  }
+
+  &__inner-col {
+    grid-column: 2 / -1;
+    transform: translateX(-10px);
+
+    @include below($tablet-new) {
+      transform: translateX(0);
+    }
+  }
+
+  &__trigger {
+    position: relative;
+    padding-right: 40px;
+    cursor: pointer;
+    user-select: none;
+
+    &:before {
+      @include text-3;
+
+      position: absolute;
+      top: 0;
+      left: calc(-33.3333% + 10px);
+      color: rgba($black, 0.6);
+      content: '(' counter(row, decimal-leading-zero) ')';
+
+      @include below($tablet-new) {
+        left: -100%;
+      }
+
+      @include below($mobile-new) {
+        left: -40px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      width: 24px;
+      height: 24px;
+      content: '';
+      background-image: url("../img/shevron-down.svg");
+
+      #{$block-name}__inner-col.active & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__subtitle {
+    @include h5;
+  }
+
+  &__descr {
+    @include text-3;
+
+    margin-top: 5px;
+    color: rgba($black, 0.6);
+
+    @include below($tablet-new) {
+      @include text-2;
+    }
+  }
+
+  &__drop {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+
+    #{$block-name}__inner-col.active & {
+      max-height: none;
+      padding-top: 20px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 5px;
+    margin: 0;
+
+    #{$block-name}__drop & {
+      max-width: 568px;
+    }
+  }
+
+  &__li {
+    @include text-2;
+
+    position: relative;
+    padding-left: 16px;
+
+    &::before {
+      position: absolute;
+      top: 6px;
+      left: 0;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background-color: $black;
+      border-radius: 50%;
+      content: '';
+    }
+  }
+
+  &__footer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $dark-white;
+
+    @include below($tablet-new) {
+      padding-top: 30px;
+      border-top: 2px solid $black;
+
+      & #{$block-name}__title {
+        grid-column: 1 / 4;
+      }
+    }
+
+    @include below($mobile-new) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+
+  &__footer-col {
+    grid-column: 4 / -1;
+    transform: translateX(-10px);
+  }
+
+  &__button {
+    display: inline-block;
+    margin-top: 40px;
+
+    @include below($tablet-new) {
+      display: flex;
+      margin-top: 30px;
+    }
+  }
+}

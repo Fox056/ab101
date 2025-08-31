@@ -1,0 +1,123 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.hero-new {
+  padding-block: 204px 100px;
+  background-color: #fff;
+
+  @include below($tablet-new) {
+    padding-block: 100px 63px;
+  }
+
+  @include below($mobile-new) {
+    padding-block: 80px 10px;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+
+    @include below($mobile-new) {
+      gap: 10px;
+    }
+  }
+
+  &__badge {
+    @include text-2;
+
+    display: flex;
+    grid-column: 4 / -1;
+    justify-content: center;
+    justify-self: start;
+    padding: 10px 20px;
+    color: $white;
+    background-color: $black;
+    border-radius: 30px;
+    margin-left: -10px;
+
+    @include below($tablet-new) {
+      justify-self: stretch;
+    }
+
+    @include below($mobile-new) {
+      grid-column: 1 / -1;
+      margin-left: 0;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -2;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(2.875rem, 0.7574rem + 5.2941vw, 6.25rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -7px;
+    text-transform: uppercase;
+
+    @include below($tablet-new) {
+      grid-column: 1 / -1;
+      line-height: 1;
+      letter-spacing: -2.76px;
+    }
+  }
+
+  &__block {
+    grid-column: 4 / -1;
+    margin-top: 10px;
+    margin-left: -10px;
+
+    @include below($tablet-new) {
+      margin-top: 0;
+    }
+
+    @include below($mobile-new) {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      margin-left: 0;
+    }
+  }
+
+  &__subtitle {
+    @include h3;
+
+    max-width: 572px;
+  }
+
+  &__descr {
+    @include text-1;
+
+    max-width: 348px;
+    margin-top: 15px;
+
+    @include below($tablet-new) {
+      @include text-2;
+
+      margin-top: 10px;
+    }
+
+    @include below($mobile-new) {
+      @include text-3;
+    }
+  }
+
+  &__card {
+    grid-column: 4 / -1;
+    max-width: 458px;
+    margin-top: 10px;
+    margin-left: -10px;
+
+    @include below($mobile) {
+      grid-column: 1 / -1;
+      max-width: none;
+      margin-top: 40px;
+      margin-left: 0;
+    }
+
+    @include below($mobile-new) {
+      margin-top: 20px;
+    }
+  }
+}

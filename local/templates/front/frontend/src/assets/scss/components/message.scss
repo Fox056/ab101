@@ -1,0 +1,131 @@
+.message {
+  padding: rem(180) 0 rem(165);
+
+  @include below($tablet) {
+    padding: rem(100) 0 rem(70);
+  }
+
+  @include below($mobile) {
+    padding: rem(30) 0;
+  }
+
+  &-seo {
+    padding: 11.15rem 0 10.6125rem;
+
+    @include below($tablet) {
+      padding: 10.175rem 0 7.6125rem;
+    }
+
+    @include below($mobile) {
+      padding: rem(40) 0 rem(60);
+    }
+    .message__right-text {
+      @include below($tablet) {
+        font-size: 36px;
+      }
+      @include below($mobile) {
+        font-size: 23px;
+      }
+    }
+
+    .message__link {
+      padding-bottom: rem(15px);
+    }
+  }
+  &__wrapper {
+    padding-left: rem(132);
+
+    @include below($desktop) {
+      padding-left: 0;
+    }
+
+
+    @include below($mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    @include below($mobile) {
+      margin-bottom: rem(30);
+    }
+  }
+
+  &__right {
+    max-width: rem(1390);
+    width: 100%;
+  }
+
+  &__left,
+  &__right {
+    @include below($desktop) {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    @include below($mobile) {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__left-text {
+    max-width: rem(1390);
+    font-weight: normal;
+    font-size: rem(20);
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #737373;
+    margin-bottom: rem(40);
+
+    @include below($tablet) {
+      max-width: rem(1390);
+    }
+
+    @include below($mobile) {
+      max-width: 100%;
+      font-size: rem(13);
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__right-text {
+    font-size: rem(50);
+    line-height: 130%;
+    margin-bottom: rem(60);
+
+    @include below($tablet) {
+      font-size: rem(36);
+    }
+    @include below($mobile) {
+      font-size: rem(23);
+      margin-bottom: rem(40);
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    margin-bottom: rem(30);
+  }
+
+  &__link {
+    font-size: rem(23);
+    line-height: 130%;
+    border-bottom: 2px solid $black;
+    text-decoration: none;
+    padding-bottom: rem(6);
+    margin-right: rem(50);
+
+    @include below($mobile) {
+      font-size: rem(16);
+      border-width: 1px;
+      padding-bottom: rem(8);
+      margin-right: rem(30);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

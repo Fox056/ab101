@@ -1,0 +1,95 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.complex {
+  &__table {
+    $pn: &;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &-row {
+      display: grid;
+      grid-template-columns: 1fr rem(610) 1fr;
+
+      @include below($tablet-new) {
+        grid-template-columns: 100%;
+      }
+
+      & + #{$pn}-row {
+        margin-top: rem(20);
+        padding-top: rem(20);
+        border-top: 1px solid $dark-white;
+
+        @include below($tablet-new) {
+          padding-top: 0;
+          border-top: 0;
+        }
+
+        &:last-of-type {
+          padding-top: rem(40);
+
+          @include below($tablet-new) {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+
+    &-label {
+      @include h6();
+      margin: 0;
+    }
+  }
+
+  &__list {
+    $pn: &;
+
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.15;
+
+    @include below($tablet-new) {
+      padding: rem(10) 0;
+      margin-top: rem(15);
+      border-width: 1px 0;
+      border-style: solid;
+      border-color: $dark-white;
+    }
+
+    &-item {
+      position: relative;
+      counter-increment: row;
+      display: grid;
+      gap: rem(10);
+      grid-template-columns: 1fr rem(350);
+
+      @include below($mobile-new) {
+        grid-template-columns: auto 1fr;
+      }
+
+      &:before {
+        @include text-3;
+
+        color: rgba($black, 0.6);
+        content: '(' counter(row, decimal-leading-zero) ')';
+      }
+
+      & + #{$pn}-item {
+        margin-top: rem(10);
+        padding-top: rem(10);
+        border-top: 1px solid $dark-white;
+      }
+    }
+  }
+
+  &__intro {
+    @include h5();
+  }
+
+  &__subtitle {
+    @include h3();
+  }
+}

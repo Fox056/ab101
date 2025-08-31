@@ -1,0 +1,70 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.button {
+  @include button;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  appearance: none;
+  border-radius: 0;
+  padding: 17px 27px;
+  text-decoration: none;
+
+  &--primary {
+    color: $white;
+    border: 1px solid $black;
+    background-color: $black;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $black;
+        background-color: transparent;
+      }
+    }
+
+    &[disabled],
+    &--disabled {
+      background-color: #a7a7a5;
+      border: 1px solid #a7a7a5;
+      pointer-events: none;
+    }
+  }
+
+  &--secondary {
+    color: $black;
+    border: 1px solid $dark-white;
+    background-color: $dark-white;
+
+    @media (hover: hover) {
+      &:hover {
+        color: white;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--border {
+    border: 1px solid;
+
+    @media (hover: hover) {
+      &:not([disabled]) {
+        &:hover {
+          color: $white;
+          fill: $white;
+          background-color: $black-secondary;
+        }
+      }
+    }
+
+    &[disabled] {
+      color: $gray;
+      fill: $gray;
+      border-color: $gray;
+      cursor: default;
+    }
+  }
+}

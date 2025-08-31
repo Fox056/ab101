@@ -1,0 +1,196 @@
+.case-page {
+  padding: 85px 0 0;
+
+  @include below($tablet-new) {
+    padding-top: 50px;
+  }
+}
+
+.case-start {
+
+  &-wrap {
+    padding: rem(150) rem(0) rem(100) rem(132);
+    @include below($desktop) {
+      padding: rem(150) rem(0) rem(100) rem(0);
+    }
+
+    @include below($tablet) {
+      padding: rem(100) rem(0) rem(100) rem(0);
+    }
+
+    @include below($mobile) {
+      padding: rem(60) rem(0) rem(60) rem(0);
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(50);
+
+    @include below($mobile) {
+      margin-bottom: rem(24);
+    }
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(60);
+
+    @include below($mobile) {
+      flex-direction: column;
+      margin-bottom: rem(40);
+    }
+
+    &:last-child {
+      margin-bottom: rem(0);
+    }
+
+    &-left {
+      width: rem(210);
+      flex: 0 0 rem(210);
+      @include below($mobile) {
+        margin-bottom: rem(16);
+        flex: auto;
+        width: auto;
+      }
+    }
+
+    &-right {
+      max-width: rem(800);
+      width: 100%;
+      margin-left: rem(100);
+
+      @include below($desktop) {
+        margin-left: rem(60);
+      }
+
+      @include below($mobile) {
+        margin-left: rem(0);
+      }
+
+      ul {
+        @extend %main-ul;
+      }
+
+      ol {
+        @extend %main-ol;
+      }
+
+      li {
+        @extend %main-li;
+      }
+
+      p {
+        @extend %main-text;
+      }
+
+      &-table {
+        max-width: rem(800);
+        min-width: rem(400);
+        width: 100%;
+        border-collapse: collapse;
+
+        @include below($mobile) {
+          margin: 0 var(--padding-content);
+        }
+
+        &-wrap {
+          overflow-x: auto;
+          margin-bottom: rem(54.4);
+          padding-bottom: rem(30);
+          @include below($mobile) {
+            width: 100vw;
+            margin: 0 calc(var(--padding-content) * -1);
+          }
+        }
+
+        thead {
+          tr {
+            th {
+              padding-bottom: rem(16);
+              font-weight: 450;
+              font-size: rem(23);
+              line-height: 130%;
+              text-align: start;
+              border-bottom: 1px solid #A7A7A5;
+
+              &:nth-child(1) {
+                width: 55%;
+              }
+
+              @include below($mobile) {
+                font-size: rem(16);
+              }
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              padding-top: 16px;
+
+              font-size: rem(23);
+              line-height: 130%;
+
+              @include below($mobile) {
+                font-size: rem(16);
+              }
+
+              &:nth-child(2) {
+                font-weight: 450;
+              }
+            }
+          }
+        }
+
+        tr {
+          th {
+            text-align: start;
+
+          }
+        }
+      }
+
+      &-purpose {
+        display: flex;
+        margin-top: rem(60);
+
+        @include below($tablet) {
+          flex-direction: column;
+        }
+        @include below($mobile) {
+          margin-top: rem(40);
+        }
+
+        &-wrap {
+          max-width: rem(360);
+          @include below($tablet) {
+            max-width: initial;
+          }
+
+          &:nth-child(n + 2) {
+            margin-left: rem(80);
+
+            @include below($tablet) {
+              margin-top: rem(30);
+              margin-left: rem(0);
+            }
+          }
+        }
+
+        &-title {
+          margin-bottom: rem(16);
+        }
+
+        &-text {
+          font-size: rem(23);
+          line-height: 130%;
+          @include below($mobile) {
+            font-size: rem(16);
+          }
+        }
+      }
+    }
+  }
+}

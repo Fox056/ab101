@@ -1,0 +1,212 @@
+@import "../settings";
+@import "../global/mixins";
+
+@mixin h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -7px;
+  text-transform: uppercase;
+
+  @include below($tablet-new) {
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: -2.76px;
+  }
+}
+
+@mixin h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -4.8px;
+  text-transform: uppercase;
+
+  @include below($tablet-new) {
+    font-size: 35px;
+    line-height: 1;
+    letter-spacing: -2.8px;
+  }
+}
+
+@mixin h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -2.16px;
+
+  @include below($tablet-new) {
+    font-size: 24px;
+    letter-spacing: -0.96px;
+  }
+}
+
+@mixin h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.4px;
+
+  @include below($tablet-new) {
+    font-size: 24px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@mixin h5 {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.72px;
+
+  @include below($tablet-new) {
+    font-size: 20px;
+    letter-spacing: -0.6px;
+  }
+}
+
+@mixin h6 {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@mixin h7 {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@mixin text-1 {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.36px;
+}
+
+@mixin text-2 {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.15;
+
+  @include below($tablet-new) {
+    font-size: 14px;
+  }
+}
+
+@mixin text-3 {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+@mixin button {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+
+  @include below($tablet-new) {
+    font-size: 16px;
+    line-height: 1.15;
+  }
+
+  @include below($mobile-new) {
+    font-size: 14px;
+    line-height: 1;
+  }
+}
+
+@mixin numbers-desktop {
+  font-family: "Inter", sans-serif;
+  font-size: 83px;
+  font-weight: 500;
+  line-height: 0.76;
+  letter-spacing: -5.81px;
+}
+
+@mixin numbers-tablet {
+  font-family: "Inter", sans-serif;
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 0.76;
+  letter-spacing: -4.48px;
+}
+@mixin numbers-mobile {
+  font-family: "Inter", sans-serif;
+  font-size: 83px;
+  font-weight: 500;
+  line-height: 0.76;
+  letter-spacing: -5.81px;
+}
+
+// Mixin - style default table
+@mixin table-default {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid $dark-white;
+
+  tr {
+    &:nth-child(odd) {
+      background-color: $dark-white;
+    }
+
+    &:nth-child(1) {
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  th, td {
+    padding: rem(10);
+  }
+
+  th {
+    text-align: left;
+    font-style: italic;
+    font-weight: normal;
+  }
+}
+
+@mixin link() {
+  text-decoration: underline;
+  text-decoration-color: $gray-secondary;
+
+  &:not([disabled]) {
+    &:hover {
+      text-decoration-color: $black;
+    }
+  }
+
+  &[disabled] {
+    color: $gray-secondary;
+    text-decoration-color: $gray-secondary;
+  }
+}
+
+@mixin link-dark() {
+  text-decoration: underline;
+  text-decoration-color: $dark-white;
+
+  &:not([disabled]) {
+    &:hover {
+      text-decoration-color: $gray-secondary;
+    }
+  }
+
+  &[disabled] {
+    color: $dark-white;
+    text-decoration-color: $dark-white;
+  }
+}

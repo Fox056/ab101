@@ -1,0 +1,16 @@
+.hover-block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  @include below($tablet) {
+    display: none;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

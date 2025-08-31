@@ -1,0 +1,122 @@
+.hero-seo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: rem(808);
+
+  @include below($tablet) {
+    justify-content: flex-start;
+  }
+
+  @include below($mobile) {
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: rem(23);
+    color: $gray;
+    margin-right: rem(24);
+    white-space: nowrap;
+
+    @include below($mobile) {
+      font-size: rem(16);
+      margin-bottom: rem(20);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+
+    @include below($tablet) {
+      flex-direction: column;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex: 1 1 100%;
+    margin-right: rem(42);
+
+    @include below($mobile) {
+      flex-direction: column;
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: rem(50);
+      height: 1px;
+      background-color: $white;
+      margin-top: rem(13);
+      margin-right: rem(24);
+      flex: 0 0 rem(50);
+
+      @include below($mobile) {
+        margin-top: 0;
+        margin-bottom: rem(20);
+        flex: auto;
+      }
+    }
+
+    &:first-of-type {
+      .hero-seo__list {
+        max-width: rem(180);
+      }
+
+      @include below($tablet) {
+        margin-bottom: rem(16);
+      }
+
+      @include below($mobile) {
+        margin-bottom: rem(12);
+
+        .hero-seo__list {
+          max-width: rem(230);
+        }
+      }
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+
+      .hero-seo__list {
+        max-width: rem(324);
+      }
+
+      @include below($tablet) {
+        padding-left: rem(74);
+
+        &:before {
+          content: none;
+        }
+      }
+
+      @include below($mobile) {
+        padding-left: 0;
+
+        .hero-seo__list {
+          max-width: rem(230);
+        }
+      }
+    }
+
+    ul {
+      display: block;
+
+      li {
+        font-size: rem(23);
+        line-height: 130%;
+        margin-bottom: rem(16);
+
+        @include below($mobile) {
+          font-size: rem(16);
+          margin-bottom: rem(12);
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

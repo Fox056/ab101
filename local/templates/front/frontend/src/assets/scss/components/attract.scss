@@ -1,0 +1,60 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.attract {
+  $pn: &;
+
+  padding: rem(60) 0;
+  background-color: $dark-white;
+
+  @include below($tablet-new) {
+    padding: rem(30) 0;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: rem(48);
+  }
+
+  &__title {
+    @include h2();
+    margin: 0 0 rem(5);
+  }
+
+  &__subtitle {
+    @include text-1();
+    color: $gray-secondary;
+    max-width: rem(380);
+    margin: 0 auto;
+  }
+
+  &__main {
+    position: relative;
+    max-width: rem(1209);
+    min-height: rem(459);
+    margin: 0 auto;
+
+    background-image: url('../img/attract-pic-desktop.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    //display: grid;
+    //gap: rem(18);
+    //grid-template-columns: repeat(5, 1fr);
+
+    @include below($tablet-new) {
+      max-width: rem(620);
+      min-height: rem(300);
+      background-image: url('../img/attract-pic-tablet.svg');
+    }
+
+    @include below($mobile-new) {
+      max-width: rem(290);
+      min-height: rem(378);
+      //grid-template-columns: repeat(2, minmax(rem(110), auto));
+      background-image: url('../img/attract-pic-mobile.svg');
+    }
+  }
+}

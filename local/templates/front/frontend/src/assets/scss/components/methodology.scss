@@ -1,0 +1,183 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.methodology {
+  &__tabs {
+    $pn: &;
+
+    &-header {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0;
+
+      @include below($tablet-new) {
+        display: none;
+      }
+    }
+
+    &-title {
+      @include h6();
+      cursor: pointer;
+      position: relative;
+      text-align: center;
+      padding: rem(15);
+
+      a {
+        text-decoration: none;
+      }
+
+      &:not(.is-active) {
+        + #{$pn}-title {
+          &:not(.is-active) {
+            &:before {
+              content: '';
+              top: 0;
+              bottom: 0;
+              left: 0;
+              position: absolute;
+              width: rem(1);
+              height: rem(20);
+              margin: auto 0;
+              background-color: $gray-secondary;
+            }
+          }
+        }
+      }
+
+      &.is-active {
+        color: $dark-white;
+        background-color: $black;
+      }
+    }
+
+    &-panel {
+      display: none;
+
+      @include below($tablet-new) {
+        display: block;
+
+        & + #{$pn}-panel {
+          margin-top: rem(40);
+        }
+      }
+
+      &.is-active {
+        display: block;
+      }
+    }
+
+    &-main {
+      color: $dark-white;
+      background-color: $black;
+      padding: rem(60) 0;
+      min-height: rem(542);
+    }
+
+    &-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include below($tablet-new) {
+        gap: rem(20);
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &-col {
+      &--title {
+        @include below($tablet-new) {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include below($mobile-new) {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+
+    &-name {
+      @include h3();
+      margin: 0;
+    }
+
+    &-subtitle {
+      @include text-1();
+      margin: rem(20) 0 0;
+
+      @include below($tablet-new) {
+        margin: 0;
+      }
+
+      @include below($mobile-new) {
+        margin: rem(20) 0 0;
+      }
+    }
+
+    &-name,
+    &-subtitle {
+      max-width: rem(485);
+    }
+
+    &-text {
+      p, ul li, ol li, dl, dt {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 115%;
+      }
+    }
+  }
+
+  &__accordion {
+    &-item {
+      border-width: 1px 0;
+      border-style: solid;
+      border-color: $gray-secondary;
+      margin: -1px 0 !important;
+    }
+
+    &-title {
+      @include h5();
+      text-decoration: none;
+      padding: rem(20) 0;
+      gap: rem(10);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:after {
+        content: '';
+        width: rem(12);
+        height: rem(6);
+        display: block;
+        background: url('../img/arrow-down.svg') no-repeat center;
+        background-size: cover;
+        transition: $transition;
+
+        .accordion-item.is-active & {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &-content {
+      padding: 0 0 rem(20);
+
+      ul li {
+        margin: 0;
+        padding-left: rem(16);
+
+        &:before {
+          content: '•';
+          top: 1px;
+        }
+
+        &:nth-child(n+2) {
+          margin-top: rem(5);
+        }
+      }
+    }
+  }
+}

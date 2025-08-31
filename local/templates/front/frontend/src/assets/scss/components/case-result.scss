@@ -1,0 +1,142 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.case-result {
+  $pn: &;
+
+  table {
+    @include text-3();
+    @include table-default();
+
+    span {
+      color: $green;
+    }
+  }
+
+  &__row {
+    display: grid;
+    gap: rem(20);
+    grid-template-columns: rem(487) minmax(0, rem(750));
+    justify-content: space-between;
+
+    @include below($tablet-new) {
+      grid-template-columns: 1fr;
+    }
+
+    & + #{$pn}__row {
+      margin-top: rem(40);
+    }
+
+    &--primary {
+      @include below($tablet-new) {
+        #{$pn}__col {
+          &:nth-of-type(3) {
+            order: 2;
+          }
+        }
+      }
+    }
+
+    &--tertiary {
+      gap: 0;
+      grid-template-columns: repeat(2, minmax(0, rem(497)));
+      justify-content: center;
+
+      @include below($mobile-new) {
+        grid-template-columns: 1fr;
+        padding-bottom: rem(200);
+        background-image: url('../img/illustration-01.svg');
+        background-repeat: no-repeat;
+        background-size: auto 175px;
+        background-position: bottom center;
+      }
+
+      #{$pn}__col {
+        padding-top: rem(26);
+        border-top: rem(6) solid $black;
+
+        @include below($tablet-new) {
+          padding-top: rem(15);
+        }
+
+        @include below($mobile-new) {
+          padding-top: 0;
+          border-top: 0;
+        }
+
+        &:first-of-type {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding-right: rem(26);
+
+          @include below($tablet-new) {
+            padding-right: rem(15);
+          }
+
+          @include below($mobile-new) {
+            padding-right: 0;
+
+            img {
+              display: none;
+            }
+          }
+        }
+
+        &:last-of-type {
+          position: relative;
+          padding-left: rem(26);
+          border-left: rem(6) solid $black;
+
+          @include below($tablet-new) {
+            padding-left: rem(15);
+          }
+
+          @include below($mobile-new) {
+            padding-left: 0;
+            border-left: 0;
+          }
+
+          &:after {
+            content: '';
+            top: 0;
+            left: rem(-6);
+            bottom: 0;
+            position: absolute;
+            margin: auto 0;
+            display: block;
+            width: rem(6);
+            height: rem(200);
+            background-color: $white;
+
+            @include below($mobile-new) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__label {
+    @include h6();
+  }
+
+  &__title {
+    @include h3();
+  }
+
+  &__figure {
+    margin: 0;
+    border: rem(3) solid $dark-white;
+
+    figcaption {
+      @include text-3();
+      font-style: italic;
+      color: $gray-secondary;
+      padding: rem(15) rem(10);
+      background-color: $dark-white;
+    }
+  }
+}

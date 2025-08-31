@@ -1,0 +1,35 @@
+.tooltip {
+  position: absolute;
+  padding: rem(9) rem(19);
+  border-radius: 24px;
+  text-align: center;
+  font-size: rem(16);
+  line-height: 130%;
+  color: $white;
+  background: $black;
+
+  &:after {
+    position: absolute;
+    bottom: rem(-14);
+    left: 50%;
+    content: "";
+    display: block;
+    width: rem(14);
+    height: rem(14);
+    background-color: $black;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &--white {
+    color: $black;
+    background-color: $white;
+
+    &:after {
+      background-color: $white;
+    }
+  }
+
+  &--rotate {
+    transform: rotate(-90deg);
+  }
+}

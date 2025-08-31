@@ -1,0 +1,67 @@
+@import "../settings";
+@import "../global/mixins";
+@import "../mixins/typography";
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 110px auto;
+  grid-template-areas: 'image info' 'button button';
+  gap: 15px;
+  padding: 20px;
+  color: $white;
+  background-color: $black;
+
+  @include below($mobile) {
+    grid-template-columns: calc(50% - 15px) 50%;
+    grid-template-areas: 'image info' 'image button';
+  }
+
+  @include below($mobile-new) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'image' 'info' 'button';
+    gap: 10px;
+    padding: 10px;
+  }
+
+  &__image {
+    grid-area: image;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: $white;
+    border-radius: 8px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-area: info;
+    height: 100%;
+    padding-right: 30px;
+
+    @include below($tablet-new) {
+      gap: 10px;
+      justify-content: start;
+      padding-right: 40px;
+    }
+  }
+
+  &__title {
+    @include text-1;
+  }
+
+  &__descr {
+    @include text-3;
+
+    color: #737373;
+
+    @include below($mobile-new) {
+      @include text-2;
+    }
+  }
+
+  &__button {
+    grid-area: button;
+    align-self: end;
+  }
+}
