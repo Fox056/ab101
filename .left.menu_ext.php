@@ -1,6 +1,20 @@
 <?
 $aMenuLinks = Array(
     Array(
+        "SEO",
+        "/seo/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
+        "Реклама в Я.Директ",
+        "/reklama/",
+        Array(),
+        Array(),
+        ""
+    ),
+    Array(
         "Кейсы",
         "/cases/",
         Array(),
@@ -8,39 +22,11 @@ $aMenuLinks = Array(
         ""
     ),
     Array(
-        "Возможности",
-        "#possibilities",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Методология",
-        "#methods",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Подготовка к сотрудничеству",
-        "#starting",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
-        "Написать мне",
-        "#section-message",
-        Array(),
-        Array(),
-        ""
-    ),
-    Array(
         "Контакты",
-        "#footer",
+        "/kontakty/",
         Array(),
         Array(),
         ""
-    ),
+    )
 );
 ?>

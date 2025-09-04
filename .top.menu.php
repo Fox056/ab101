@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Контакты",
-		"#footer", 
+		"/kontakty/",
 		Array(), 
 		Array(), 
 		"" 

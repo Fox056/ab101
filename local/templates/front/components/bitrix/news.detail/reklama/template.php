@@ -99,16 +99,18 @@ while ($obFAQ = $resFAQ->GetNext()) {
                     <div class="form-block__descr"><?php echo $arResult['PROPERTIES']['FORM_HEADER_TEXT']['VALUE']?></div>
                 </div>
 
-				<?php $APPLICATION->IncludeComponent(
-					"ab404.feedback.telegram", "",
-					[
-                       'FORM_TITLE' =>  $arResult['PROPERTIES']['FORM_TITLE']['VALUE'],
-                       'LINK_POLICY' => $arResult['PROPERTIES']['LINK_POLICY']['VALUE'],
-                       'LINK_PERSONAL_DATA' => $arResult['PROPERTIES']['LINK_PERSONAL_DATA']['VALUE'],
-                       'CHAT_ID' => $arResult['PROPERTIES']['TELEGRAM_CHAT_ID']['VALUE'],
-                    ],
-					false
-				);?>
+                <?php $APPLICATION->IncludeComponent(
+                        "ab404.feedback.telegram", "",
+                        [
+                                'FORM_TYPE' => 'default',
+                                'FORM_TITLE' =>  $arResult['PROPERTIES']['FORM_TITLE']['VALUE'],
+                                "LINK_POLICY" => "/info/politika-konfidentsialnosti/",
+                                "LINK_PERSONAL_DATA" => "/info/politika-v-otnoshenii-obrabotki-i-zashchity-personalnykh-dannykh-ip-baklenev-andrey-alekseevich/",
+                                "CHAT_ID" => "-4948437006",
+                                'OK_TEXT' => 'Наш специалист свяжется с вами в ближайшее время'
+                        ],
+                        false
+                );?>
                 <div class="form-block__footer">
 					<?php echo htmlspecialcharsBack($arResult['PROPERTIES']['FORM_FOOTER']['VALUE']);?>
                 </div>

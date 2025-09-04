@@ -1051,66 +1051,21 @@ function safeMixedContentOutput($content)
                     <?php if (!empty($arResult["STARTING"]["FORM_TITLE"])): ?>
                     <div class="starting-new__form">
                         <div class="form-block">
-                            <div class="form-block__body">
-                                <div class="form-block__box" data-request-form-base="active">
-                                    <div class="form-block__form-title">
-                                        <?= htmlspecialchars($arResult["STARTING"]["FORM_TITLE"]) ?>
-                                    </div>
-                                    <form action="#" class="form-block__form" data-request-form novalidate>
-                                        <input class="input" type="text" name="address" id="address"
-                                               autocomplete="address" placeholder="Адрес сайта для продвижения"
-                                               title="Адрес сайта для продвижения" required>
-                                        <input class="input" type="text" name="description" id="description"
-                                               autocomplete="description"
-                                               placeholder="Опишите задачи, боли проекта, KPI... "
-                                               title="Опишите задачи, боли проекта, KPI... " required>
-                                        <input class="input" type="text" name="expectation" id="expectation"
-                                               autocomplete="expectation"
-                                               placeholder="Какие ваши ожидания от работы в первый год?"
-                                               title="Какие ваши ожидания от работы в первый год?" required>
-                                        <input class="input" type="text" name="connect" id="connect" autocomplete="off"
-                                               placeholder="Укажите удобный для вас способ связи и контакт для связи (e-mail, мессенджеры), для обмена информацией"
-                                               title="Укажите удобный для вас способ связи и контакт для связи (e-mail, мессенджеры), для обмена информацией"
-                                               required>
-                                        <input class="input" type="text" name="name" id="name" autocomplete="name"
-                                               placeholder="Как к вам обращаться" title="Как к вам обращаться" required>
-                                        <label class="checkbox">
-                                            <input class="checkbox__input" name="agreement" id="agreement"
-                                                   type="checkbox" required>
-                                            <span class="checkbox__fake-input"></span>
-                                            <span class="checkbox__title">Я согласен на <a href="#">обработку персональных данных</a> в соответствии с <a
-                                                        href="#">политикой конфиденциальности</a></span>
-                                        </label>
-                                        <label class="checkbox">
-                                            <input class="checkbox__input" name="personal" id="personal" type="checkbox"
-                                                   required>
-                                            <span class="checkbox__fake-input"></span>
-                                            <span class="checkbox__title">Да, я добровольно даю своё согласие на <a
-                                                        href="#">обработку персональных данных</a></span>
-                                        </label>
-                                        <button
-                                                class="button button--primary form-block__button"
-                                                type="submit"
-                                                data-request-form-submit
-                                                disabled
-                                        >
-                                            Отправить
-                                        </button>
-                                    </form>
-                                </div>
-
-                                <div class="form-block__box" data-request-form-success>
-                                    <div class="form-block__form-title">Благодарим вас за заполнение формы</div>
-                                    <div class="form-block__side">
-                                        <div class="form-block__message">Наш специалист свяжется с вами в ближайшее
-                                            время
-                                        </div>
-                                        <button class="button button--primary form-block__button"
-                                                data-request-form-reset>Отправить повторный запрос
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                            $APPLICATION->IncludeComponent(
+                                    "ab404.feedback.telegram",
+                                    "",
+                                    array(
+                                            "FORM_TYPE" => "contacts",
+                                            "FORM_TITLE" => $arResult["STARTING"]["FORM_TITLE"],
+                                            "LINK_POLICY" => "/info/politika-konfidentsialnosti/",
+                                            "LINK_PERSONAL_DATA" => "/info/politika-v-otnoshenii-obrabotki-i-zashchity-personalnykh-dannykh-ip-baklenev-andrey-alekseevich/",
+                                            "CHAT_ID" => "-4948437006",
+                                            "OK_TEXT" => "Наш специалист свяжется с вами в ближайшее время"
+                                    ),
+                                    false
+                            );
+                            ?>
                         </div>
                     </div>
                     <?php endif; ?>

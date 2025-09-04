@@ -32,5 +32,12 @@ $arUrlRewrite=array (
 	'PATH' => '/reklama-pages/index.php',
 	'SORT' => 100,
   ),
-
+  4 =>
+  array (
+    'CONDITION' => '#^/kontakty/#',
+    'RULE' => '',
+    'ID' => 'bitrix:news',
+    'PATH' => '/kontakty/index.php',
+    'SORT' => 100,
+  )
 );
